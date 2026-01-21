@@ -1,89 +1,201 @@
-# Antigravity Skills
+# Skills Directory
 
-通过模块化的 **Skills** 定义，赋予 Agent 在特定领域的专业能力（如全栈开发、复杂逻辑规划、多媒体处理等），让 Agent 能够像人类专家一样系统性地解决复杂问题。
+**Welcome to the skills folder!** This is where all 179+ specialized AI skills live.
 
-## 📂 目录结构
+## 🤔 What Are Skills?
+
+Skills are specialized instruction sets that teach AI assistants how to handle specific tasks. Think of them as expert knowledge modules that your AI can load on-demand.
+
+**Simple analogy:** Just like you might consult different experts (a designer, a security expert, a marketer), skills let your AI become an expert in different areas when you need them.
+
+---
+
+## 📂 Folder Structure
+
+Each skill lives in its own folder with this structure:
 
 ```
-.
-├── .agent/
-│   └── skills/             # Antigravity Skills 技能库
-│       ├── skill-name/   # 独立技能目录
-│       │   ├── SKILL.md    # 技能核心定义与Prompt（必须）
-│       │   ├── scripts/    # 技能依赖的脚本（可选）
-│       │   ├── examples/   # 技能使用示例（可选）
-│       │   └── resources/  # 技能依赖的模板与资源（可选）
-├── skill-guide/            # 用户手册与文档指南
-│   └── Antigravity_Skills_Manual_CN.md  # 中文使用手册
-└── README.md
+skills/
+├── skill-name/              # Individual skill folder
+│   ├── SKILL.md             # Main skill definition (required)
+│   ├── scripts/             # Helper scripts (optional)
+│   ├── examples/            # Usage examples (optional)
+│   └── resources/           # Templates & resources (optional)
 ```
 
-## 📖 快速开始
-1. 将`.agent/`目录复制到你的工作区：
+**Key point:** Only `SKILL.md` is required. Everything else is optional!
+
+---
+
+## How to Use Skills
+
+### Step 1: Make sure skills are installed
+Skills should be in your `.agent/skills/` directory (or `.claude/skills/`, `.gemini/skills/`, etc.)
+
+### Step 2: Invoke a skill in your AI chat
+Use the `@` symbol followed by the skill name:
+
+```
+@brainstorming help me design a todo app
+```
+
+or
+
+```
+@stripe-integration add payment processing to my app
+```
+
+### Step 3: The AI becomes an expert
+The AI loads that skill's knowledge and helps you with specialized expertise!
+
+---
+
+## Skill Categories
+
+### Creative & Design
+Skills for visual design, UI/UX, and artistic creation:
+- `@algorithmic-art` - Create algorithmic art with p5.js
+- `@canvas-design` - Design posters and artwork (PNG/PDF output)
+- `@frontend-design` - Build production-grade frontend interfaces
+- `@ui-ux-pro-max` - Professional UI/UX design with color, fonts, layouts
+- `@web-artifacts-builder` - Build modern web apps (React, Tailwind, Shadcn/ui)
+- `@theme-factory` - Generate themes for documents and presentations
+- `@brand-guidelines` - Apply Anthropic brand design standards
+- `@slack-gif-creator` - Create high-quality GIFs for Slack
+
+### Development & Engineering
+Skills for coding, testing, debugging, and code review:
+- `@test-driven-development` - Write tests before implementation (TDD)
+- `@systematic-debugging` - Debug systematically, not randomly
+- `@webapp-testing` - Test web apps with Playwright
+- `@receiving-code-review` - Handle code review feedback properly
+- `@requesting-code-review` - Request code reviews before merging
+- `@finishing-a-development-branch` - Complete dev branches (merge, PR, cleanup)
+- `@subagent-driven-development` - Coordinate multiple AI agents for parallel tasks
+
+### Documentation & Office
+Skills for working with documents and office files:
+- `@doc-coauthoring` - Collaborate on structured documents
+- `@docx` - Create, edit, and analyze Word documents
+- `@xlsx` - Work with Excel spreadsheets (formulas, charts)
+- `@pptx` - Create and modify PowerPoint presentations
+- `@pdf` - Handle PDFs (extract text, merge, split, fill forms)
+- `@internal-comms` - Draft internal communications (reports, announcements)
+- `@notebooklm` - Query Google NotebookLM notebooks
+
+### Planning & Workflow
+Skills for task planning and workflow optimization:
+- `@brainstorming` - Brainstorm and design before coding
+- `@writing-plans` - Write detailed implementation plans
+- `@planning-with-files` - File-based planning system (Manus-style)
+- `@executing-plans` - Execute plans with checkpoints and reviews
+- `@using-git-worktrees` - Create isolated Git worktrees for parallel work
+- `@verification-before-completion` - Verify work before claiming completion
+- `@using-superpowers` - Discover and use advanced skills
+
+### System Extension
+Skills for extending AI capabilities:
+- `@mcp-builder` - Build MCP (Model Context Protocol) servers
+- `@skill-creator` - Create new skills or update existing ones
+- `@writing-skills` - Tools for writing and validating skill files
+- `@dispatching-parallel-agents` - Distribute tasks to multiple agents
+
+---
+
+## Finding Skills
+
+### Method 1: Browse this folder
 ```bash
-cp -r .agent/ /path/to/your/workspace/
+ls skills/
 ```
-2. **调用 Skill**: 在对话框输入 `@[skill-name]` 或 `/skill-name`来进行调用，例如：
-```text
-/canvas-design 帮我设计一张关于“Deep Learning”的博客封面，风格要素雅、科技感，尺寸 16:9
+
+### Method 2: Search by keyword
+```bash
+ls skills/ | grep "keyword"
 ```
-3. **查看手册**: 详细的使用案例和参数说明请查阅 [skill-guide/Antigravity_Skills_Manual_CN.md](skill-guide/Antigravity_Skills_Manual_CN.md)。
-4. **环境依赖**: 部分 Skill (如 PDF, XLSX) 依赖 Python 环境，请确保 `.venv` 处于激活状态或系统已安装相应库。
 
+### Method 3: Check the main README
+See the [main README](../README.md) for the complete list of all 179+ skills organized by category.
 
-## 🚀 已集成的 Skills
+---
 
-### 🎨 创意与设计 (Creative & Design)
-这些技能专注于视觉表现、UI/UX 设计和艺术创作。
-- **`@[algorithmic-art]`**: 使用 p5.js 代码创作算法艺术、生成艺术
-- **`@[canvas-design]`**: 基于设计哲学创建海报、艺术作品（输出 PNG/PDF）
-- **`@[frontend-design]`**: 创建高质量、生产级的各种前端界面和 Web 组件
-- **`@[ui-ux-pro-max]`**: 专业的 UI/UX 设计智能，提供配色、字体、布局等全套设计方案
-- **`@[web-artifacts-builder]`**: 构建复杂、现代化的 Web 应用（基于 React, Tailwind, Shadcn/ui）
-- **`@[theme-factory]`**: 为文档、幻灯片、HTML 等生成配套的主题风格
-- **`@[brand-guidelines]`**: 应用 Anthropic 官方品牌设计规范（颜色、排版等）
-- **`@[slack-gif-creator]`**: 制作专用于 Slack 的高质量 GIF 动图
+## 💡 Popular Skills to Try
 
-### 🛠️ 开发与工程 (Development & Engineering)
-这些技能涵盖了编码、测试、调试和代码审查的全生命周期。
-- **`@[test-driven-development]`**: 测试驱动开发（TDD），在编写实现代码前先编写测试
-- **`@[systematic-debugging]`**: 系统化调试，用于解决 Bug、测试失败或异常行为
-- **`@[webapp-testing]`**: 使用 Playwright 对本地 Web 应用进行交互测试和验证
-- **`@[receiving-code-review]`**: 处理代码审查反馈，进行技术验证而非盲目修改
-- **`@[requesting-code-review]`**: 主动发起代码审查，在合并或完成任务前验证代码质量
-- **`@[finishing-a-development-branch]`**: 引导开发分支的收尾工作（合并、PR、清理等）
-- **`@[subagent-driven-development]`**: 协调多个子 Agent 并行执行独立的开发任务
+**For beginners:**
+- `@brainstorming` - Design before coding
+- `@systematic-debugging` - Fix bugs methodically
+- `@git-pushing` - Commit with good messages
 
-### 📄 文档与办公 (Documentation & Office)
-这些技能用于处理各种格式的专业文档和办公需求。
-- **`@[doc-coauthoring]`**: 引导用户进行结构化文档（提案、技术规范等）的协作编写
-- **`@[docx]`**: 创建、编辑和分析 Word 文档
-- **`@[xlsx]`**: 创建、编辑和分析 Excel 电子表格（支持公式、图表）
-- **`@[pptx]`**: 创建和修改 PowerPoint 演示文稿
-- **`@[pdf]`**: 处理 PDF 文档，包括提取文本、表格，合并/拆分及填写表单
-- **`@[internal-comms]`**: 起草各类企业内部沟通文档（周报、通告、FAQ 等）
-- **`@[notebooklm]`**: 查询 Google NotebookLM 笔记本，提供基于文档的确切答案
+**For developers:**
+- `@test-driven-development` - Write tests first
+- `@react-best-practices` - Modern React patterns
+- `@senior-fullstack` - Full-stack development
 
-### 📅 计划与流程 (Planning & Workflow)
-这些技能帮助优化工作流、任务规划和执行效率。
-- **`@[brainstorming]`**: 在开始任何工作前进行头脑风暴，明确需求和设计
-- **`@[writing-plans]`**: 为复杂的多步骤任务编写详细的执行计划（Spec）
-- **`@[planning-with-files]`**: 适用于复杂任务的文件式规划系统（Manus-style）
-- **`@[executing-plans]`**: 执行已有的实施计划，包含检查点和审查机制
-- **`@[using-git-worktrees]`**: 创建隔离的 Git 工作树，用于并行开发或任务切换
-- **`@[verification-before-completion]`**: 在声明任务完成前运行验证命令，确保证据确凿
-- **`@[using-superpowers]`**: 引导用户发现和使用这些高级技能
+**For security:**
+- `@ethical-hacking-methodology` - Security basics
+- `@burp-suite-testing` - Web app security testing
 
-### 🧩 系统扩展 (System Extension)
-这些技能允许我扩展自身的能力边界。
-- **`@[mcp-builder]`**: 构建 MCP (Model Context Protocol) 服务器，连接外部工具和数据
-- **`@[skill-creator]`**: 创建新技能或更新现有技能，扩展我的知识库和工作流
-- **`@[writing-skills]`**: 辅助编写、编辑和验证技能文件的工具集
-- **`@[dispatching-parallel-agents]`**: 分发并行任务给多个 Agent 处理
+---
 
-## 📚 参考文档
-- [Anthropic Skills](https://github.com/anthropic/skills)
-- [UI/UX Pro Max Skills](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
-- [Superpowers](https://github.com/obra/superpowers)
-- [Planning with Files](https://github.com/OthmanAdi/planning-with-files)
-- [NotebookLM](https://github.com/PleasePrompto/notebooklm-skill)
+## Creating Your Own Skill
+
+Want to create a new skill? Check out:
+1. [CONTRIBUTING.md](../CONTRIBUTING.md) - How to contribute
+2. [docs/SKILL_ANATOMY.md](../docs/SKILL_ANATOMY.md) - Skill structure guide
+3. `@skill-creator` - Use this skill to create new skills!
+
+**Basic structure:**
+```markdown
+---
+name: my-skill-name
+description: "What this skill does"
+---
+
+# Skill Title
+
+## Overview
+[What this skill does]
+
+## When to Use
+- Use when [scenario]
+
+## Instructions
+[Step-by-step guide]
+
+## Examples
+[Code examples]
+```
+
+---
+
+## Documentation
+
+- **[Getting Started](../GETTING_STARTED.md)** - Quick start guide
+- **[Examples](../docs/EXAMPLES.md)** - Real-world usage examples
+- **[FAQ](../FAQ.md)** - Common questions
+- **[Visual Guide](../docs/VISUAL_GUIDE.md)** - Diagrams and flowcharts
+
+---
+
+## 🌟 Contributing
+
+Found a skill that needs improvement? Want to add a new skill?
+
+1. Read [CONTRIBUTING.md](../CONTRIBUTING.md)
+2. Study existing skills in this folder
+3. Create your skill following the structure
+4. Submit a Pull Request
+
+---
+
+## References
+
+- [Anthropic Skills](https://github.com/anthropic/skills) - Official Anthropic skills
+- [UI/UX Pro Max Skills](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) - Design skills
+- [Superpowers](https://github.com/obra/superpowers) - Original superpowers collection
+- [Planning with Files](https://github.com/OthmanAdi/planning-with-files) - Planning patterns
+- [NotebookLM](https://github.com/PleasePrompto/notebooklm-skill) - NotebookLM integration
+
+---
+
+**Need help?** Check the [FAQ](../FAQ.md) or open an issue on GitHub!
